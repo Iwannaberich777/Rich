@@ -119,3 +119,70 @@ body.about-page {
 .about-content .masthead-rule {
   margin-top: 2.5rem;
 }
+
+.donate {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.donate-label {
+  margin: 0 0 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.donate-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 100%;
+  background: var(--vault-panel);
+  border: 1px solid var(--brass);
+  border-radius: 8px;
+  padding: 0.6rem 0.6rem 0.6rem 1rem;
+}
+
+.donate-box code {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--brass-bright);
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--vault);
+  background: var(--brass);
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: var(--brass-bright);
+}
+
+.copy-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+  .donate-box {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 0.9rem;
+  }
+}
