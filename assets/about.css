@@ -82,15 +82,40 @@ body.about-page {
 .about-content {
   max-width: 620px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 2.5rem;
-  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
 }
 
-.about-placeholder {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--parchment-dim);
-  line-height: 1.7;
+.testimony {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.testimony p {
   margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--parchment-dim);
+}
+
+.testimony .ask {
+  color: var(--parchment);
+  font-size: 1.1rem;
+}
+
+.ask-amount {
+  display: inline-block;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--brass-bright);
+  background: #c9a22722;
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.05rem 0.45rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.about-content .masthead-rule {
+  margin-top: 2.5rem;
 }
