@@ -1,32 +1,33 @@
-const list = document.getElementById("ranking");
+const list = document.getElementById("ledger");
 
-const medal = (rank) => {
-  if (rank === 1) return "🥇";
-  if (rank === 2) return "🥈";
-  if (rank === 3) return "🥉";
-  return null;
-};
+const fmtSerial = (rank) => `Nº ${String(rank).padStart(2, "0")}`;
 
 const fmtWorth = (b) => {
   const n = Number.isInteger(b) ? b : b.toFixed(1);
-  return `$${n}B`;
+  return `$${n},000M`;
 };
 
 BILLIONAIRES.forEach((person) => {
   const li = document.createElement("li");
-  li.className = "card";
+  li.className = "note";
   li.style.setProperty("--i", person.rank);
 
-  const m = medal(person.rank);
-
   li.innerHTML = `
-    <div class="rank">${m ?? `#${person.rank}`}</div>
-    <div class="info">
-      <h2>${person.name} <span class="flag" title="${person.country}">${person.flag}</span></h2>
-      <p class="meta">${person.country} · ${person.source}</p>
-      <p class="quip">${person.quip}</p>
+    <div class="note-seal">
+      <span class="serial">${fmtSerial(person.rank)}</span>
     </div>
-    <div class="worth">${fmtWorth(person.worth)}</div>
+    <div class="note-body">
+      <div class="note-heading">
+        <h2>${person.name}</h2>
+        <span class="issuer" title="País emisor: ${person.country}">${person.flag}</span>
+      </div>
+      <p class="note-source">País emisor: ${person.country} — Respaldado por: ${person.source}</p>
+      <p class="note-memo">“${person.quip}”</p>
+    </div>
+    <div class="note-denom">
+      <span class="denom-value">${fmtWorth(person.worth)}</span>
+      <span class="denom-currency">USD</span>
+    </div>
   `;
 
   list.appendChild(li);
