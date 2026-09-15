@@ -32,3 +32,15 @@ BILLIONAIRES.forEach((person) => {
 
   list.appendChild(li);
 });
+
+const aboutToggle = document.getElementById("aboutToggle");
+const aboutPanel = document.getElementById("aboutPanel");
+
+aboutToggle.addEventListener("click", () => {
+  const isOpen = aboutToggle.getAttribute("aria-expanded") === "true";
+  aboutToggle.setAttribute("aria-expanded", String(!isOpen));
+  aboutPanel.hidden = isOpen;
+  if (!isOpen) {
+    aboutPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+});
