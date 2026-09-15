@@ -1,0 +1,192 @@
+@font-face {
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b0d10;
+  --bg-soft: #14171c;
+  --card: #171b21;
+  --card-border: #262b33;
+  --text: #eef0f3;
+  --text-dim: #9aa3af;
+  --gold: #f2c14e;
+  --gold-soft: #f2c14e22;
+  --green: #3ecf8e;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at 20% -10%, #1c2029 0%, var(--bg) 45%);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.5;
+  padding: 0 1.25rem 4rem;
+}
+
+a {
+  color: var(--gold);
+}
+
+.hero {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4.5rem 0 2.5rem;
+  text-align: center;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border: 1px solid #f2c14e44;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff, var(--gold) 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.ranking {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: rise 0.5s ease forwards;
+  animation-delay: calc(var(--i) * 0.045s);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rank {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.info h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--gold);
+  padding: 0.12rem 0.4rem;
+  border-radius: 5px;
+  line-height: 1.4;
+}
+
+.meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.quip {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.worth {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--green);
+  white-space: nowrap;
+  text-align: right;
+}
+
+footer {
+  max-width: 780px;
+  margin: 3rem auto 0;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .card {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas:
+      "rank info"
+      "worth worth";
+  }
+  .rank { grid-area: rank; }
+  .info { grid-area: info; }
+  .worth {
+    grid-area: worth;
+    text-align: left;
+    margin-top: 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--card-border);
+  }
+}
