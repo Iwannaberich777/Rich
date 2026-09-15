@@ -264,11 +264,13 @@ a {
 }
 
 .seal-button {
+  display: inline-block;
   font-family: var(--mono);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--brass-bright);
   background: transparent;
   border: 1px solid var(--brass);
@@ -287,45 +289,6 @@ a {
 .seal-button:focus-visible {
   outline: 2px solid var(--parchment);
   outline-offset: 3px;
-}
-
-.seal-button[aria-expanded="true"] {
-  background: var(--brass);
-  color: var(--vault);
-}
-
-.about-panel {
-  width: 100%;
-  max-width: 480px;
-  background: var(--about-bg, var(--vault-panel));
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 1.75rem;
-  text-align: center;
-  animation: settle 0.35s ease forwards;
-}
-
-.about-eyebrow {
-  margin: 0 0 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sage);
-}
-
-.about-panel h2 {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin: 0 0 0.75rem;
-  color: var(--parchment);
-}
-
-.about-body {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--parchment-dim);
 }
 
 /* ---------- Footer ---------- */
