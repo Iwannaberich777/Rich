@@ -186,3 +186,8 @@ body.about-page {
     padding: 0.9rem;
   }
 }
+
+.contact {
+  margin-top: 1.75rem;
+  text-align: center;
+}
