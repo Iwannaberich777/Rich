@@ -6,14 +6,14 @@ if (copyBtn && address) {
     try {
       await navigator.clipboard.writeText(address.textContent.trim());
       const original = copyBtn.textContent;
-      copyBtn.textContent = "Copiado ✓";
+      copyBtn.textContent = "Copied ✓";
       copyBtn.disabled = true;
       setTimeout(() => {
         copyBtn.textContent = original;
         copyBtn.disabled = false;
       }, 1800);
     } catch (err) {
-      copyBtn.textContent = "No se pudo copiar";
+      copyBtn.textContent = "Couldn't copy";
     }
   });
 }

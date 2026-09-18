@@ -1,10 +1,10 @@
 const list = document.getElementById("ledger");
 
-const fmtSerial = (rank) => `Nº ${String(rank).padStart(2, "0")}`;
+const fmtSerial = (rank) => `No. ${String(rank).padStart(2, "0")}`;
 
 const fmtWorth = (b) => {
-  const n = Number.isInteger(b) ? b : b.toFixed(1);
-  return `$${n},000M`;
+  const millions = Math.round(b * 1000);
+  return `$${millions.toLocaleString("en-US")}M`;
 };
 
 BILLIONAIRES.forEach((person) => {
@@ -19,9 +19,9 @@ BILLIONAIRES.forEach((person) => {
     <div class="note-body">
       <div class="note-heading">
         <h2>${person.name}</h2>
-        <span class="issuer" title="País emisor: ${person.country}">${person.flag}</span>
+        <span class="issuer" title="Issuing country: ${person.country}">${person.flag}</span>
       </div>
-      <p class="note-source">País emisor: ${person.country} — Respaldado por: ${person.source}</p>
+      <p class="note-source">Issuing country: ${person.country} — Backed by: ${person.source}</p>
       <p class="note-memo">“${person.quip}”</p>
     </div>
     <div class="note-denom">
